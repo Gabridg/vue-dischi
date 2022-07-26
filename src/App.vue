@@ -20,7 +20,7 @@ export default {
 @import './assets/scss/style.scss';
 
 #app {
-  background-color: #1e2d3b;
+  background-color: $primary-color;
   height: 100vh;
 }
 </style>

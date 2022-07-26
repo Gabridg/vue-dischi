@@ -11,8 +11,10 @@ export default {
 </script>
 
 <style lang="scss">
+@import'../assets/Scss/style.scss';
+
 .header {
-    background-color: #2e3a46;
+    background-color: $secondary-color;
     height: 80px;
 
     img {
