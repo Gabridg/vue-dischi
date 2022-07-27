@@ -1,7 +1,7 @@
 <template>
-    <div class="container">
-        <SongCard v-for="song in songs" :key="song.title" :title="song.title" :image="song.image" :author="song.author"
-            :year="song.year">
+    <div class="container d-flex flex-wrap">
+        <SongCard v-for="song in songs" :key="song.title" :title="song.title" :poster="song.poster"
+            :author="song.author" :year="song.year">
 
         </SongCard>
     </div>
@@ -13,7 +13,9 @@ import SongCard from "./SongCard.vue"
 
 export default {
     name: "TheMain",
-    components: { SongCard },
+    components: {
+        SongCard,
+    },
     data() {
         return {
             songs: [],
@@ -21,13 +23,14 @@ export default {
     },
     mounted() {
         axios.get("https://flynn.boolean.careers/exercises/api/array/music").then((res) => {
-            this.songs = res.data.results
+            this.songs = res.data.response
+            console.log(res.data)
         })
     }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import'../assets/Scss/style.scss';
 
 .container {

@@ -1,6 +1,21 @@
 <template>
     <div class="header">
-        <img src="../assets/img/logo-small.svg" alt="Spotify Logo">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center pt-2">
+                <div class="col-6">
+                    <img src="../assets/img/logo-small.svg" alt="Spotify Logo" class="img-fluid">
+                </div>
+                <div class="col-6 text-end">
+                    <select name="" id="">
+                        <option value="" hidden>Genere Musicale</option>
+                        <option value="rock">Rock</option>
+                        <option value="pop">Pop</option>
+                        <option value="jazz">Jazz</option>
+                        <option value="metal">Metal</option>
+                    </select>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -18,11 +33,14 @@ export default {
     height: 80px;
 
     img {
-        line-height: 80px;
-        height: 60px;
+        height: 50px;
         display: block;
         margin-left: 20px;
-        padding-top: 15px;
+    }
+
+    select {
+        width: 35%;
+        height: 25%;
     }
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
     <div class="song-card text-center">
-        <img :src="image" :alt="title">
+        <img :src="poster" :alt="title" class="img-fluid">
         <h4>{{ title }}</h4>
         <p>{{ autor }}<br>{{ year }}</p>
     </div>
@@ -11,21 +11,25 @@ export default {
     name: "SongCard",
     props: {
         title: String,
-        image: String,
+        poster: String,
         author: String,
         year: String
     }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import'../assets/Scss/style.scss';
 
 .song-card {
     background-color: $secondary-color;
     height: 350px;
-    width: calc(100% / 5);
-    margin-top: 50px;
+    width: calc(100% / 5 - 30px);
+    margin: 50px 15px 15px 15px;
+
+    img {
+        padding: 15px;
+    }
 
     h4 {
         font-weight: bold;
