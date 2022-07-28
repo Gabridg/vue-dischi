@@ -6,13 +6,7 @@
                     <img src="../assets/img/logo-small.svg" alt="Spotify Logo" class="img-fluid">
                 </div>
                 <div class="col-6 text-end">
-                    <select name="" id="">
-                        <option value="" hidden>Genere Musicale</option>
-                        <option value="rock">Rock</option>
-                        <option value="pop">Pop</option>
-                        <option value="jazz">Jazz</option>
-                        <option value="metal">Metal</option>
-                    </select>
+                    <HeaderSelect :options="listMusic" @change-option="emitListMusic"> </HeaderSelect>
                 </div>
             </div>
         </div>
@@ -20,8 +14,20 @@
 </template>
 
 <script>
+import HeaderSelect from './HeaderSelect.vue';
 export default {
     name: "TheHeader",
+    components: {
+        HeaderSelect,
+    },
+    props: {
+        listMusic: Array,
+    },
+    methods: {
+        emitListMusic(genre) {
+            this.$emit('change-genre', genre)
+        }
+    }
 }
 </script>
 
@@ -36,11 +42,6 @@ export default {
         height: 50px;
         display: block;
         margin-left: 20px;
-    }
-
-    select {
-        width: 35%;
-        height: 25%;
     }
 }
 </style>

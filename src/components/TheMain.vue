@@ -21,11 +21,33 @@ export default {
             songs: [],
         }
     },
+    computedç: {
+        filterSogns() {
+            if (!this.selectedGenre) return this.song
+            return this.songs.filter((song) => {
+                if (song.genre === this.selectedGenre) return true;
+                else return false;
+            });
+        }
+    },
+    props: {
+        selectedGenre: String,
+    },
     mounted() {
         axios.get("https://flynn.boolean.careers/exercises/api/array/music").then((res) => {
-            this.songs = res.data.response
-            console.log(res.data)
-        })
+            this.songs = res.data.response;
+            console.log(res.data);
+            this.getListGenre();
+        });
+    },
+    methods: {
+        getListGenre() {
+            const genres = [];
+            this.songs.forEach((song) => {
+                if (!genres.includes(song.genre)) genres.push(song.genre);
+            });
+            this.$emit('sinc-songs', genres);
+        }
     }
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Header></Header>
-    <Main></Main>
+    <Header :genres="listMusic" @change-genre="setGenre"></Header>
+    <Main :selected-genre="selectedGenre" @sinc-songs="setListGenre"></Main>
   </div>
 </template>
 
@@ -14,7 +14,20 @@ export default {
   components: {
     Header,
     Main,
-
+  },
+  data() {
+    return {
+      selectedGenre: "",
+      listMusic: [],
+    }
+  },
+  methods: {
+    setGenre(genre) {
+      this.selectedGenre = genre;
+    },
+    setListGenre(genres) {
+      this.listMusic = genres;
+    }
   }
 }
 </script>

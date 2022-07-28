@@ -2,7 +2,7 @@
     <div class="song-card text-center">
         <img :src="poster" :alt="title" class="img-fluid">
         <h4>{{ title }}</h4>
-        <p>{{ autor }}<br>{{ year }}</p>
+        <p>{{ author }}<br>{{ year }}</p>
     </div>
 </template>
 
