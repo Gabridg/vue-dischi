@@ -1,7 +1,7 @@
 <template>
     <div class="container d-flex flex-wrap">
-        <SongCard v-for="song in songs" :key="song.title" :title="song.title" :poster="song.poster"
-            :author="song.author" :year="song.year">
+        <SongCard v-for="(song, id) in songs" :key="id" :title="song.title" :poster="song.poster" :author="song.author"
+            :year="song.year">
 
         </SongCard>
     </div>

@@ -1,8 +1,8 @@
 <template>
 
-    <select v-model="optionSelect" @change="$emitchangeOption">
+    <select v-model="optionSelect" @change="changeOption">
         <option value="" hidden>Genere Musicale</option>
-        <option v-for="option in options" :key="option.value" :value="option.value">{{ option.text }}</option>
+        <option v-for="option in options" :key="option" :value="option">{{ option }}</option>
     </select>
 </template>
 

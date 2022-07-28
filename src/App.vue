@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header :genres="listMusic" @change-genre="setGenre"></Header>
+    <Header :list-music="listMusic" @change-genre="setGenre"></Header>
     <Main :selected-genre="selectedGenre" @sinc-songs="setListGenre"></Main>
   </div>
 </template>
