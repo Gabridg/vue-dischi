@@ -21,26 +21,26 @@ export default {
             songs: [],
         }
     },
-    computedç: {
+    props: {
+        selectedGenre: String,
+    },
+    computed: {
         filterSogns() {
-            if (!this.selectedGenre) return this.song
+            if (!this.selectedGenre) return this.songs;
             return this.songs.filter((song) => {
                 if (song.genre === this.selectedGenre) return true;
                 else return false;
             });
         }
     },
-    props: {
-        selectedGenre: String,
-    },
-    mounted() {
-        axios.get("https://flynn.boolean.careers/exercises/api/array/music").then((res) => {
-            this.songs = res.data.response;
-            console.log(res.data);
-            this.getListGenre();
-        });
-    },
     methods: {
+        takenSongs() {
+            axios.get("https://flynn.boolean.careers/exercises/api/array/music").then((res) => {
+                this.songs = res.data.response;
+                console.log(res.data);
+                this.getListGenre();
+            });
+        },
         getListGenre() {
             const genres = [];
             this.songs.forEach((song) => {
@@ -48,6 +48,9 @@ export default {
             });
             this.$emit('sinc-songs', genres);
         }
+    },
+    created() {
+        this.takenSongs();
     }
 }
 </script>
